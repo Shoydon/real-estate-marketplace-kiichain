@@ -1,0 +1,40 @@
+.App{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.App::-webkit-scrollbar {
+  display: none;
+}
+.gradient-bg-welcome {
+  background-color:#0f0e13;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,0.5) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,0.5) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,0.5) 0, transparent 50%);
+}
+
+.card-inner {
+  width: inherit;
+  height: inherit;
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+}
+
+.card-div{
+  width: 250px; 
+  height: 340px;
+  transition: all 0.2s;
+  position: relative;
+  cursor: pointer;
+}
+
+.card-info{
+  width: 700px; 
+  height: 450px;
+  transition: all 0.2s;
+  position: relative;
+  cursor: pointer;
+}

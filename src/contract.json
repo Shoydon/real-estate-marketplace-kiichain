@@ -1,0 +1,282 @@
+{
+    "address": "0x166134fb89043E2B459f08e68EF09107e2D05079",
+    "abi": [
+        {
+            "inputs": [],
+            "name": "allBuildings",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "internalType": "uint256",
+                            "name": "buildingId",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "address",
+                            "name": "lister",
+                            "type": "address"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "listerBuildingId",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "apartmentsCount",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "address[]",
+                            "name": "apartmentOwners",
+                            "type": "address[]"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "apartmentsOwned",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "apartmentPrice",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "string",
+                            "name": "ipfsHash",
+                            "type": "string"
+                        },
+                        {
+                            "internalType": "bool",
+                            "name": "soldOut",
+                            "type": "bool"
+                        }
+                    ],
+                    "internalType": "struct RealEstate.Building[]",
+                    "name": "",
+                    "type": "tuple[]"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "buildings",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "buildingId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "lister",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "listerBuildingId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "apartmentsCount",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "apartmentsOwned",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "apartmentPrice",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "ipfsHash",
+                    "type": "string"
+                },
+                {
+                    "internalType": "bool",
+                    "name": "soldOut",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "buildingsCount",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_buildingId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_apartmentCount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "buyApartment",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_apartmentsCount",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_apartmentPrice",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_ipfsHash",
+                    "type": "string"
+                }
+            ],
+            "name": "listBuilding",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "myApartments",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "internalType": "address",
+                            "name": "owner",
+                            "type": "address"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "apartmentId",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "buildingId",
+                            "type": "uint256"
+                        }
+                    ],
+                    "internalType": "struct RealEstate.Apartment[]",
+                    "name": "",
+                    "type": "tuple[]"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "myListedBuildings",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "internalType": "uint256",
+                            "name": "buildingId",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "address",
+                            "name": "lister",
+                            "type": "address"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "listerBuildingId",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "apartmentsCount",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "address[]",
+                            "name": "apartmentOwners",
+                            "type": "address[]"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "apartmentsOwned",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "apartmentPrice",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "string",
+                            "name": "ipfsHash",
+                            "type": "string"
+                        },
+                        {
+                            "internalType": "bool",
+                            "name": "soldOut",
+                            "type": "bool"
+                        }
+                    ],
+                    "internalType": "struct RealEstate.Building[]",
+                    "name": "",
+                    "type": "tuple[]"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "name": "users",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "addr",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ]
+}
