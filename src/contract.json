@@ -1,6 +1,47 @@
 {
-    "address": "0x166134fb89043E2B459f08e68EF09107e2D05079",
+    "address": "0x58D6CCc5f80f699DC7339D19648411e971cBC5D7",
     "abi": [
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_buildingId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_apartmentCount",
+                    "type": "uint256"
+                }
+            ],
+            "name": "buyApartment",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_apartmentsCount",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_apartmentPrice",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "string",
+                    "name": "_ipfsHash",
+                    "type": "string"
+                }
+            ],
+            "name": "listBuilding",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
         {
             "inputs": [],
             "name": "allBuildings",
@@ -126,47 +167,6 @@
                 }
             ],
             "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_buildingId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_apartmentCount",
-                    "type": "uint256"
-                }
-            ],
-            "name": "buyApartment",
-            "outputs": [],
-            "stateMutability": "payable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_apartmentsCount",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_apartmentPrice",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "string",
-                    "name": "_ipfsHash",
-                    "type": "string"
-                }
-            ],
-            "name": "listBuilding",
-            "outputs": [],
-            "stateMutability": "nonpayable",
             "type": "function"
         },
         {

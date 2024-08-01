@@ -5,12 +5,25 @@ import contractData from '../contract.json'
 import { ethers } from 'ethers';
 
 function NFTs({ marketplace, setNFTitem, setMarketplace }) {
-  useEffect(() => {
-    document.title = "NFT Museum ETH"
-  }, []);
-
   const [loading, setLoading] = useState(true)
   const [items, setItems] = useState([])
+  const [bal, setBal] = useState(0)
+  useEffect(() => {
+    document.title = "NFT Museum ETH"
+    const getBal = async () => {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      await provider.send("eth_requestAccounts", []);
+      const signer = provider.getSigner();
+      const acc = signer.getAddress();
+      const balanceWei = await provider.getBalance(acc);
+      // Convert the balance from wei to eth
+      // const balanceEth = ethers.utils.formatEther(balanceWei);
+      console.log("bal: " + Number(balanceWei));
+      setBal(Number(balanceWei))
+    }
+    getBal();
+  }, []);
+
   const loadMarketplaceItems = async () => {
     // console.log("contract in nfts", marketplace);
     if (marketplace === null) {
@@ -23,7 +36,9 @@ function NFTs({ marketplace, setNFTitem, setMarketplace }) {
         contractData.abi,
         signer
       );
+      console.log(marketplace);
       setMarketplace(marketplacecontract);
+      setLoading(false)
     }
     const itemCount = Number(await marketplace.buildingsCount.call())
     // console.log("item count", itemCount);
@@ -65,20 +80,44 @@ function NFTs({ marketplace, setNFTitem, setMarketplace }) {
     console.log("type: ", typeof (items));
   }
 
-  const buyMarketItem = async (item) => {
-    const tx = await (await marketplace.viewitem(item.itemId, { value: 0 }))
+  const buyMarketItem = async (item, apartmentCount) => {
+    // const tx = await (await marketplace.viewitem(item.itemId, { value: 0 }))
+    if (apartmentCount < 1) {
+      toast.info("Enter number of apartments to buy", {
+        position: "top-center"
+      })
+      return
+    }
+    console.log("buying apartment");
+    console.log(item, apartmentCount);
+    console.log("price to pay: ", item.price * apartmentCount);
+    console.log("price type : ", typeof (item.price * apartmentCount));
+    console.log(bal > (item.price * apartmentCount) ? "bal is greater "+bal : "ap is greater " + (item.price * apartmentCount) );
+    try {
+      // const bigBuildingId = ethers.utils.bigNumberify(item.buildingId);
+      // const bigApartmentCount = ethers.utils.bigNumberify(apartmentCount);
+      // console.log("inside send trxn: ", item.price * apartmentCount);
+      const tx = await marketplace.buyApartment(item.buildingId, apartmentCount, {
+        value: (item.price * apartmentCount) // Assuming you have apartment price
+      });      // Send the transaction (assuming signer has sufficient funds)
+      const receipt = await tx.wait();
 
-    toast.info("Wait till transaction Confirms....", {
-      position: "top-center"
-    })
+      await tx.wait();
+      toast.success("Transaction successful!", { position: "top-center" })
+      console.log("Transaction successful:", receipt);
+      return receipt.transactionHash; // O
+    } catch (e) {
+      console.log("Error buying apartment: ", e);
+    }
 
-    await tx.wait();
+    // toast.info("Wait till transaction Confirms....", {
+    //   position: "top-center"
+    // })
+
 
     setNFTitem(item)
     item.viewitem = true;
   }
-
-
 
   useEffect(() => {
     loadMarketplaceItems()
@@ -94,14 +133,9 @@ function NFTs({ marketplace, setNFTitem, setMarketplace }) {
     <div className='flex flex-wrap gradient-bg-welcome   gap-10 justify-center pt-24 pb-5 px-16'>
       {
         (items.length > 0 ?
-
           items.map((item, idx) => (
-
             <Cards item={item} buyMarketItem={buyMarketItem} marketplace={marketplace} />
-
-
           ))
-
           : (
             <main style={{ padding: "1rem 0" }}>
               <h2 className='text-white'>No listed assets</h2>
