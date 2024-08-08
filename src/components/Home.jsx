@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Ar from "../assets/Ar.svg"
 import { Link } from 'react-router-dom'
 
 function Home() {
+
   return (
     <div className='text-white flex justify-around items-center pt-32'>
 

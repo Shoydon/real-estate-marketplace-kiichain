@@ -38,7 +38,7 @@ function Create({ marketplace, address, correctNetwork }) {
       })
       return
     }
-    if(forminfo.price < 1) {
+    if(forminfo.price <= 0) {
       toast.info("Enter a valid price for the apartments", {
         position: "top-center"
       })
@@ -84,7 +84,7 @@ function Create({ marketplace, address, correctNetwork }) {
             name: forminfo.title,
             description: forminfo.description,
             image: ImgHash,
-            price: forminfo.price * 10**10,
+            price: forminfo.price * 10**18,
             // price: ethers.utils.parseEther(forminfo.price),
             owner:address,
             apartments: forminfo.apartments
@@ -125,7 +125,7 @@ function Create({ marketplace, address, correctNetwork }) {
 
   // const listingPrice = ethers.utils.parseEther(forminfo.price.toString())
   try {
-    const tx1=  await(await marketplace.listBuilding(forminfo.apartments, forminfo.price *10**10, uri))
+    const tx1=  await(await marketplace.listBuilding(forminfo.apartments, forminfo.price *10**18, uri))
     // const tx1=  await(await marketplace.listBuilding(forminfo.apartments, ethers.utils.parseEther(forminfo.price), uri))
   
     toast.info("Wait till transaction Confirms....", {
@@ -168,8 +168,8 @@ function Create({ marketplace, address, correctNetwork }) {
             <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
             <textarea onChange={handleChange} name="description" id="description" rows="4" class="block p-2.5 w-full text-sm  mb-4 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Describe the building"></textarea>
             <div class="mb-4">
-              <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price (in 10¹⁰ KII)</label>
-              <input onChange={handleChange} type="number" name='price' id="price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder=' × 10¹⁰ KII' required />
+              <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Price (in KII)</label>
+              <input onChange={handleChange} type="number" name='price' id="price" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" placeholder=' 0.001 KII' required />
             </div>
             <div className='text-center'>
 

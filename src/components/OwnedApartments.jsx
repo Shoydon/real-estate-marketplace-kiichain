@@ -59,7 +59,7 @@ function OwnedApartments({ marketplace, setMarketplace }) {
                   <div className='text-white text-2xl font-thin mt-3'> {item.description}</div>
                   <div className='text-white text-2xl font-thin mt-3'>Apartment No: {item.apartmentId + 1}</div>
                   <div className='text-white text-2xl font-thin mt-3'>Price per Apartment:</div>
-                  <div className='text-white text-2xl font-thin'>{item.price / 10**10} × 10⁻⁸ KII</div>
+                  <div className='text-white text-2xl font-thin'>{item.price / 10**18} KII</div>
                 </div>
               </div>
             </div>

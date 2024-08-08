@@ -67,7 +67,7 @@ function MyBuildings({ marketplace, address, setMarketplace }) {
                   <h3 className='text-white text-2xl font-thin mt-3'>{item.name}</h3>
                   <div className='text-white text-2xl font-thin mt-3'>Apartments available : {item.apartmentsAvailable}</div>
                   <div className='text-white text-2xl font-thin mt-3'>Price per Apartment:</div>
-                  <div className='text-white text-2xl font-thin'>{item.price / 10**10} × 10⁻⁸ KII </div>
+                  <div className='text-white text-2xl font-thin'>{item.price / 10**18} KII </div>
                 </div>
               </div>
             </div>
