@@ -27,7 +27,7 @@ function Cards({ item, buyMarketItem }) {
           <div className='text-white text-2xl font-thin mt-3'>Apartments available : {item.apartmentsAvailable}</div>
           <div className='text-white text-2xl font-thin mt-3'>Price per Apartment:</div>
           {/* <div className='text-white text-2xl font-thin'>{item.price / 10**18} EMYC</div> */}
-          <div className='text-white text-2xl font-thin'>{item.price / 10**18} KII</div>
+          <div className='text-white text-2xl font-thin'>{item.price} KII</div>
           <hr />
           <div className='flex items-center mb-2 mt-3 flex-wrap justify-center'>
               <label htmlFor="apartmentCount" className='text-white mr-2'>Apartments to buy</label>

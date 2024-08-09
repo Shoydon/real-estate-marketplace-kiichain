@@ -84,7 +84,7 @@ function Create({ marketplace, address, correctNetwork }) {
             name: forminfo.title,
             description: forminfo.description,
             image: ImgHash,
-            price: forminfo.price * 10**18,
+            price: forminfo.price,
             // price: ethers.utils.parseEther(forminfo.price),
             owner:address,
             apartments: forminfo.apartments
@@ -123,9 +123,9 @@ function Create({ marketplace, address, correctNetwork }) {
       position: "top-center"
     })
 
-  // const listingPrice = ethers.utils.parseEther(forminfo.price.toString())
+  const listingPrice = ethers.utils.parseEther(forminfo.price.toString())
   try {
-    const tx1=  await(await marketplace.listBuilding(forminfo.apartments, forminfo.price *10**18, uri))
+    const tx1=  await(await marketplace.listBuilding(forminfo.apartments, listingPrice, uri))
     // const tx1=  await(await marketplace.listBuilding(forminfo.apartments, ethers.utils.parseEther(forminfo.price), uri))
   
     toast.info("Wait till transaction Confirms....", {

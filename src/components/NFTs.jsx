@@ -97,8 +97,12 @@ function NFTs({ marketplace, setNFTitem, setMarketplace }) {
       // const bigBuildingId = ethers.utils.bigNumberify(item.buildingId);
       // const bigApartmentCount = ethers.utils.bigNumberify(apartmentCount);
       // console.log("inside send trxn: ", item.price * apartmentCount);
+
+      const price = ethers.utils.parseEther((item.price * apartmentCount).toString())
+      console.log("price: "+price);
+      
       const tx = await marketplace.buyApartment(item.buildingId, apartmentCount, {
-        value: (item.price * apartmentCount) // Assuming you have apartment price
+        value: (price) // Assuming you have apartment price
       });      // Send the transaction (assuming signer has sufficient funds)
       const receipt = await tx.wait();
 
